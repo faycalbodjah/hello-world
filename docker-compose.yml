@@ -1,0 +1,14 @@
+site:
+  build: site
+  ports :
+   - "30000:80"
+adminer:
+           image: dockette/adminer:full-php5
+           restart: always
+           ports:
+              - "50000:8080"
+database:
+    image: mariadb:10.4
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DATABASE=wordpress
